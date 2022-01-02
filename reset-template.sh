@@ -5,6 +5,7 @@ REPO_URL=$(git config --get remote.origin.url)
 if [[ ${REPO_URL} != "git@github.com:shiba2046/python-template.git" ]]; then
     echo "Not template repository."
     echo "EXIT"
+    rm -f reset-template.sh
     exit 1
 fi
 
@@ -22,3 +23,4 @@ find src -mindepth 1 -not -iname "setup.py" -exec rm -rf {} \;
 
 make clean
 rm -f debug*
+rm .project-init
